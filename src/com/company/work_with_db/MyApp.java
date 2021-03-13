@@ -15,7 +15,7 @@ public class MyApp {
 
     public void Start(){
         while(true){
-            System.out.println("Choose one option:\n 1) Search for book by name\n 2) Get book by ISBN\n 3) Add book\n 4) Remove book\n 0) Exit\n");
+            System.out.println("Choose one option:\n 1) Search for book by name\n 2) Get book by ISBN\n 3) Add book\n 4) Remove book\n 5) See all books\n 0) Exit\n");
             int choice = scanner.nextInt();
             if (choice==1) {
                 searchBookByTitleMenu();
@@ -29,6 +29,9 @@ public class MyApp {
             }
             else if (choice==4) {
                 removeBookByISBNMenu();
+            }
+            else if (choice==5){
+                printAllMenu();
             }
             else {
                 break;
@@ -55,21 +58,19 @@ public class MyApp {
         System.out.println("Write the ISBN of book!");
         int id = scanner.nextInt();
         System.out.println("Write the name of book!");
-//        System.out.println("Write the name of Author!");
-//        System.out.println("Write book's genre");
-//        System.out.println("Write book's edition");
         String title = scanner.next();
-        System.out.println("Excellent!");
+        System.out.println("Excellent!Please type random number!");
+
         int num = scanner.nextInt();
 
         System.out.println("Write the name of Author!");
         String author = scanner.next();
-        System.out.println("Great!");
+        System.out.println("Great!Please type random number!");
         num = scanner.nextInt();
 
         System.out.println("Write book's genre");
         String genre = scanner.next();
-        System.out.println("Good job!");
+        System.out.println("Good job!Please type random number!");
         num = scanner.nextInt();
 
         System.out.println("Write book's edition");
@@ -88,6 +89,12 @@ public class MyApp {
         String result = controller.removeBookByISBN(id);
 
         System.out.println(result);
+    }
+
+    public void printAllMenu(){
+        String result = BookRepository.printAll().toString();
+        System.out.println(result);
+
     }
 
 }

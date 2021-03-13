@@ -126,4 +126,43 @@ public class BookRepository implements IBookRepository {
         }
         return false;
     }
+
+
+    public static ArrayList<Book> printAll() {
+        Connection connection = null;
+        try{
+            connection = Database.getConnection();
+
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM books");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            ArrayList<Book> books = new ArrayList<>();
+
+            while(resultSet.next()){
+                Book book = new Book(resultSet.getInt("ISBN"), resultSet.getString("title"),
+                        resultSet.getString("author"), resultSet.getString("genre"),
+                        resultSet.getString("book_edition")  );
+                books.add(book);
+
+//                int is_bn = resultSet.getInt("ISBN");
+//               String req_tit = resultSet.getString("title");
+//                String req_aut = resultSet.getString("author");
+//                String req_gen = resultSet.getString("genre");
+//                String req_book = resultSet.getString("book_edition");
+//
+//                System.out.println("ISBN: "+is_bn);
+//                System.out.println("Title: "+req_tit);
+//                System.out.println("Author: "+req_aut);
+//                System.out.println("Genre: "+req_gen);
+//                System.out.println("Book edition: "+req_book);
+//                System.out.println("*************************-----BOOKS-----***************************");
+            }
+            return books;
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
