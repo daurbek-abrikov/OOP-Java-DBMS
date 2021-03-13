@@ -55,16 +55,22 @@ public class MyApp {
         System.out.println("Write the ISBN of book!");
         int id = scanner.nextInt();
         System.out.println("Write the name of book!");
+//        System.out.println("Write the name of Author!");
+//        System.out.println("Write book's genre");
+//        System.out.println("Write book's edition");
         String title = scanner.next();
         System.out.println("Excellent!");
+        int num = scanner.nextInt();
 
         System.out.println("Write the name of Author!");
         String author = scanner.next();
         System.out.println("Great!");
+        num = scanner.nextInt();
 
         System.out.println("Write book's genre");
         String genre = scanner.next();
         System.out.println("Good job!");
+        num = scanner.nextInt();
 
         System.out.println("Write book's edition");
         String book_edition = scanner.next();
